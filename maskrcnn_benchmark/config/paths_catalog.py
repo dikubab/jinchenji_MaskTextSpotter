@@ -67,6 +67,10 @@ class DatasetCatalog(object):
             "scut-eng-char/train_images",
             "scut-eng-char/train_gts",
         ),
+        "stamp_v1":(
+            "stamp_v1/train_images",
+            "stamp_v1/train_gts",
+        ),
 
     }
 
@@ -151,6 +155,18 @@ class DatasetCatalog(object):
             return dict(
                 args=args,
                 factory="ScutDataset",
+            )
+        elif "stamp" in name:
+            data_dir = DatasetCatalog.DATA_DIR
+            attrs = DatasetCatalog.DATASETS[name]
+            args = dict(
+                use_charann=True,
+                imgs_dir=os.path.join(data_dir, attrs[0]),
+                gts_dir=os.path.join(data_dir, attrs[1]),
+            )
+            return dict(
+                args=args,
+                factory="StampDataset",
             )
         raise RuntimeError("Dataset not available: {}".format(name))
 
