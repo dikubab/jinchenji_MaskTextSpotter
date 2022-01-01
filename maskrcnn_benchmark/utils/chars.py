@@ -13,6 +13,9 @@ def char2num(char):
 
 def num2char(num):
 	chars = '_0123456789abcdefghijklmnopqrstuvwxyz'
+	with open('/home/hdu/cvProjs/Stamp/MaskTextSpotter/3755.txt', 'r', encoding='utf-8') as f:
+		d = f.readline()
+		chars = '_' + d
 	char = chars[num]
 	# if num >=1 and num <=10:
 	# 	char = chr(ord('0') + num - 1)
