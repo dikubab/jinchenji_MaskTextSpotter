@@ -55,6 +55,8 @@ def do_train(
     start_training_time = time.time()
     end = time.time()
     for iteration, (images, targets, _) in enumerate(data_loader, start_iter):
+        torch.cuda.empty_cache()
+        print(iteration, "###"*3)
         data_time = time.time() - end
         arguments["iteration"] = iteration
 
@@ -63,7 +65,7 @@ def do_train(
         images = images.to(device)
         targets = [target.to(device) for target in targets]
 
-        loss_dict = model(images, targets)
+        loss_dict = model(images, targets, iteration)
 
         losses = sum(loss for loss in loss_dict.values())
         # reduce losses over all GPUs for logging purposes

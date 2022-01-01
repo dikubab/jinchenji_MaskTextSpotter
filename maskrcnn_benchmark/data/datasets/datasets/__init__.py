@@ -6,5 +6,4 @@ from .synthtext import SynthtextDataset
 from .scut import ScutDataset
 from .total_text import TotaltextDataset
 from .stamp import StampDataset
-__all__ = ["COCODataset", "ConcatDataset","IcdarDataset","MixDataset","ScutDataset","TotaltextDataset", 'StampDataset']
-# __all__ = ["COCODataset", "ConcatDataset","IcdarDataset","SynthtextDataset","MixDataset","ScutDataset","TotaltextDataset", 'StampDataset']
+__all__ = ["COCODataset", "ConcatDataset","IcdarDataset","SynthtextDataset","MixDataset","ScutDataset","TotaltextDataset", 'StampDataset']

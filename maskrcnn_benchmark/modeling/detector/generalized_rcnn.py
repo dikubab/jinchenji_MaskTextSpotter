@@ -30,7 +30,7 @@ class GeneralizedRCNN(nn.Module):
         self.rpn = build_rpn(cfg)
         self.roi_heads = build_roi_heads(cfg)
 
-    def forward(self, images, targets=None):
+    def forward(self, images, targets=None, iteration=-1):
         """
         Arguments:
             images (list[Tensor] or ImageList): images to be processed

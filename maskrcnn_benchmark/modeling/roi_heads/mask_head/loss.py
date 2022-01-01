@@ -160,6 +160,7 @@ class CharMaskRCNNLossComputation(object):
         mask_loss = F.binary_cross_entropy_with_logits(
             mask_logits.squeeze(dim=1), mask_targets
         )
+
         if self.use_weighted_loss:
             char_mask_loss = F.cross_entropy(
                 char_mask_logits, char_mask_targets, char_mask_weights, ignore_index=-1
